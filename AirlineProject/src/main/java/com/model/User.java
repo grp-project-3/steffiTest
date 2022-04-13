@@ -14,92 +14,72 @@ public class User {
 	private int id;
 	
 	
-	private String type;
+	private String userName;
 	
 
-	private String addressLine;
+	private String password;
 	
 	
-	private long zipCode;
+	private String firstName;
 	
 	
-	private String city;
+	private String lastName;
+
 	
-	
-	private String state;
-	
-	
-	private String country;
-	
-	
-	private long mobileNo;
+	private long Contact;
 	
 	public User() {}
-
 
 	public int getId() {
 		return id;
 	}
-    
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getType() {
-		return type;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setType(String type) {
-		this.type = type;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getAddressLine() {
-		return addressLine;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setAddressLine(String addressLine) {
-		this.addressLine = addressLine;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
-	public long getZipCode() {
-		return zipCode;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setZipCode(long zipCode) {
-		this.zipCode = zipCode;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
-	public String getCity() {
-		return city;
+	public String getLastName() {
+		return lastName;
 	}
 
-	public void setCity(String city) {
-		this.city = city;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
-	public String getState() {
-		return state;
+	public long getContact() {
+		return Contact;
 	}
 
-	public void setState(String state) {
-		this.state = state;
+	public void setContact(long contact) {
+		Contact = contact;
 	}
+	
 
-	public String getCountry() {
-		return country;
-	}
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
-
-	public long getMobileNo() {
-		return mobileNo;
-	}
-
-	public void setMobileNo(long mobileNo) {
-		this.mobileNo = mobileNo;
-	}
 	
 	
 	

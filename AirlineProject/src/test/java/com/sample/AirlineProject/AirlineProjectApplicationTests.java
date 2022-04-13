@@ -22,60 +22,55 @@ class AirlineProjectApplicationTests {
 			@Test
 			void testAdd() {
 				User user=new User();
-				user.setType("Steffi");
-				user.setAddressLine("Peenya 1 stage");
-				user.setZipCode(453235);
-				user.setCity("Belgaum");
-				user.setState("Karnataka");
-				user.setCountry("India");	
-				user.setMobileNo(797582346);
+				user.setUserName("Steffi");
+				user.setPassword("Peenya 1 stage");
+				user.setFirstName("Pragati");
+				user.setLastName("Desai");	
+				user.setContact(797582346);
 				service.add(user);
 				User user1=service.find(user.getId());
-					Assert.assertEquals("Steffi", user1.getType());
+					Assert.assertEquals("Steffi", user1.getUserName());
 				
 	}
 			@Test
 			void testFind() {
 				User user2=new User();
-				user2.setState("Banglore");
+				user2.setUserName("Steffi");
 				User user3=service.find(user2.getId());
 				Assert.assertNull(user3);
 			}
 			@Test
 			void testFindAll() {
 				User profile5=new User();
-				profile5.setType("Ranjitha");
-				profile5.setAddressLine("Laggere");
-				profile5.setZipCode(24);
-				profile5.setCity("Bangalore");
-				profile5.setState("Goa")	;
-				profile5.setCountry("India");
-				profile5.setMobileNo(797572742);
+				profile5.setUserName("Ranjitha");
+				profile5.setPassword("Laggere");
+				profile5.setFirstName("Steffi");
+				profile5.setLastName("Bangalore");
+				
+				profile5.setContact(797572742);
 				service.add(profile5);
 				User profile6=new User();
-				profile6.setType("Steffi");
-				profile6.setAddressLine("Belgavi");
-				profile6.setZipCode(25);
-				profile6.setCity("Belgaum");
-				profile6.setState("Karnataka")	;
-				profile6.setCountry("India");
-				profile6.setMobileNo(797572742);
+				profile6.setUserName("Steffi");
+				profile6.setPassword("Belgavi");
+				profile6.setFirstName("Ranjan");
+				profile6.setLastName("Belgaum");
+				
+				profile6.setContact(797572742);
 				service.add(profile6);
 			List<User>userlist=service.findAll();
-			Assert.assertEquals(userlist.get(1).getType(), "Ranjitha");
-			Assert.assertEquals(userlist.get(1).getState(), "Goa");
+			Assert.assertEquals(userlist.get(1).getUserName(), "Ranjitha");
+			Assert.assertEquals(userlist.get(1).getLastName(), "Goa");
 
 }
 			@Test
 			void testUpdate() {
 				User uc=new User();
-				uc.setType("Lakshmi");
-				uc.setAddressLine("Lakshmi@gmail.com");
-				uc.setZipCode(45315);
-				uc.setCity("Pune");
-				uc.setState("Karnataka");
-				uc.setCountry("India");
-				uc.setMobileNo(797572742);
+				uc.setUserName("Lakshmi");
+				uc.setPassword("Lakshmi@gmail.com");
+				uc.setFirstName("Radhika");
+				uc.setLastName("Pune");
+				
+				uc.setContact(797572742);
 				service.add(uc);
 				
 				service.update(uc);
@@ -93,6 +88,7 @@ class AirlineProjectApplicationTests {
 				User u2=service.find(3);
 				Assert.assertNull(u2);
 			}
+			
 			
 			
 			

@@ -21,16 +21,15 @@ class AirlineTestUser {
 			@Test
 			void testAdd() {
 				User user=new User();
-				user.setType("Steffi");
-				user.setAddressLine("Peenya 1 stage");
-				user.setZipCode(453235);
-				user.setCity("Belgaum");
-				user.setState("Karnataka");
-				user.setCountry("India");	
-				user.setMobileNo(797582346);
+				user.setUserName("Steffi");
+				user.setPassword("Peenya 1 stage");
+				user.setFirstName("Pragati");
+				user.setLastName("Desai");	
+				user.setContact(797582346);
 				service.add(user);
 				User user1=service.find(user.getId());
-					Assert.assertEquals("Ranjitha", user1.getType());
+					Assert.assertEquals("Steffi", user1.getUserName());
+				
 				
 	}
 
