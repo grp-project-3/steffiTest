@@ -3,15 +3,14 @@ package com.dao;
 import java.util.List;
 
 import org.hibernate.Session;
-
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.model.User;
-
 @Component
 public class UserDAOImpl implements UserDAO {
+
 	@Autowired
 	SessionFactory sessionFactory;
 
@@ -35,7 +34,6 @@ public class UserDAOImpl implements UserDAO {
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
-		
 		return true;
 	}
 //	@Override
@@ -67,22 +65,14 @@ public class UserDAOImpl implements UserDAO {
 	}
 	@Override
 	public boolean deleteUser(int id) {
+		// TODO Auto-generated method stub
 		Session session=sessionFactory.openSession();
-		User user=session.find(User.class, id);
 		session.getTransaction().begin();
+		User user=session.find(User.class, id);
 		session.delete(user);
 		session.flush();
 		session.getTransaction().commit();
 		session.close();
-		return false;
-		
+		return true;
 	}
-	
-}	
-	
-	
-	
-	
-
-	
-
+}

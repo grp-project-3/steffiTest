@@ -15,4 +15,5 @@ public User findUser(int id);
 public List<User> findAllUser();
 
 public boolean deleteUser(int id);
+public boolean updateUser(User user);
 }

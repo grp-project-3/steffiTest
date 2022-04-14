@@ -1,9 +1,8 @@
 package com.controller;
 import java.util.Arrays;
-public class DeleteUserException extends RuntimeException {
-	
+public class AddUserException extends RuntimeException {
 	private int id;
-	public DeleteUserException(int id) {
+	public AddUserException(int id) {
 		
 		super("id "+id+" not found");
 		this.id=id;
@@ -14,5 +13,4 @@ public class DeleteUserException extends RuntimeException {
 		return "id "+ id +" not available";
 	}
 	
-
 }
