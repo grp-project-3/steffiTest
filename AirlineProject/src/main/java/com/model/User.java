@@ -3,6 +3,7 @@ package com.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -13,10 +14,10 @@ public class User {
 	@GeneratedValue
 	private int id;
 	
-	
+	@NotNull
 	private String userName;
 	
-
+	@NotNull
 	private String password;
 	
 	
@@ -24,9 +25,20 @@ public class User {
 	
 	
 	private String lastName;
-
 	
-	private long Contact;
+	@NotNull
+	private String Email;
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	@OneToOne
+	private Contact contact;
 	
 	public User() {}
 
@@ -70,12 +82,12 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public long getContact() {
-		return Contact;
+	public Contact getContact() {
+		return contact;
 	}
 
-	public void setContact(long contact) {
-		Contact = contact;
+	public void setContact(Contact contact) {
+		this.contact = contact;
 	}
 	
 

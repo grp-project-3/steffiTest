@@ -29,27 +29,37 @@ class AirlineContactTest {
 				contact.setState("Karnataka");
 				contact.setCountry("India");	
 				contact.setMobileNo("1277798978");
-				//service.add(contact);
-				//Contact contact=service.find(contact.getId());
-					//Assert.assertEquals("Steffi", contact.getType());
+				service.add(contact);
+				Contact contact_to_be_tested=service.find(contact.getId());
+				Assert.assertEquals("Steffi", contact_to_be_tested.getType());
 				
 	}
 			@Test 
 			void testDelete() {
-				service.delete(1);
+				Contact u1 =service.find(4);
+				service.delete(u1.getId());
 //				if(u1!=null) {
 //					System.out.println("****Not deleted****");
 //					
 //				}
-				Contact u2=service.find(1);
+				Contact u2=service.find(4);
 				Assert.assertNull(u2);
 			}
 			@Test
 			void testFind() {
 				Contact contact2=new Contact();
 				contact2.setType("Steffi");
+				contact2.setAddressLine("Laggere");
+				contact2.setZipCode(453235);
+				contact2.setCity("Belgaum");
+				contact2.setState("Karnataka");
+				contact2.setCountry("India");
+				contact2.setCountry("India");
+				contact2.setMobileNo("1277798978");
+				service.add(contact2);
+				
 				Contact contact3=service.find(contact2.getId());
-				Assert.assertNull(contact3);
+				Assert.assertEquals("Steffi",contact3.getType() );
 			}
 			@Test
 			void testFindAll() {
@@ -63,16 +73,21 @@ class AirlineContactTest {
 				profile5.setCountry("India");
 				profile5.setMobileNo("1277798978");
 				service.add(profile5);
+				
 				Contact profile6=new Contact();
 				profile6.setType("Ranjitha");
+				profile6.setAddressLine("Laggere");
 				profile6.setZipCode(453235);
 				profile6.setCity("Belgaum");
 				profile6.setState("Karnataka");
-				//profile6.setContact(797572742);
+				profile6.setCountry("India");
+				profile6.setCountry("India");
+				profile6.setMobileNo("1277798978");
+
 				service.add(profile6);
 			List<Contact>contactlist=service.findAll();
 			Assert.assertEquals(contactlist.get(1).getType(), "Ranjitha");
-			Assert.assertEquals(contactlist.get(1).getAddressLine(), "Goa");
+			Assert.assertEquals(contactlist.get(1).getAddressLine(), "Laggere");
 
 }
 }

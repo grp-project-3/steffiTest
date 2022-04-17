@@ -26,7 +26,6 @@ class AirlineProjectApplicationTests {
 				user.setPassword("Peenya 1 stage");
 				user.setFirstName("Pragati");
 				user.setLastName("Desai");	
-				user.setContact(797582346);
 				service.add(user);
 				User user1=service.find(user.getId());
 					Assert.assertEquals("Steffi", user1.getUserName());
@@ -47,7 +46,7 @@ class AirlineProjectApplicationTests {
 				profile5.setFirstName("Steffi");
 				profile5.setLastName("Bangalore");
 				
-				profile5.setContact(797572742);
+			
 				service.add(profile5);
 				User profile6=new User();
 				profile6.setUserName("Steffi");
@@ -55,11 +54,11 @@ class AirlineProjectApplicationTests {
 				profile6.setFirstName("Ranjan");
 				profile6.setLastName("Belgaum");
 				
-				profile6.setContact(797572742);
+
 				service.add(profile6);
 			List<User>userlist=service.findAll();
 			Assert.assertEquals(userlist.get(1).getUserName(), "Ranjitha");
-			Assert.assertEquals(userlist.get(1).getLastName(), "Goa");
+			Assert.assertEquals(userlist.get(1).getLastName(), "Bangalore");
 
 }
 			@Test
@@ -70,7 +69,7 @@ class AirlineProjectApplicationTests {
 				uc.setFirstName("Radhika");
 				uc.setLastName("Pune");
 				
-				uc.setContact(797572742);
+		
 				service.add(uc);
 				
 				service.update(uc);

@@ -24,37 +24,46 @@ public class UserController {
 @Autowired
 UserService service;
 
-@GetMapping("/getuser")
-public List<User> getAllUser()
-{
-	return service.findAll();
+@PostMapping("/adduser")
+public ResponseEntity<?> addUser(@RequestBody User user) {
+service.add(user);
+return ResponseEntity.status(HttpStatus.OK).body("User added succesfully");
 }
 
-
-@PostMapping("/addUser")
-public ResponseEntity<?> addUser(@RequestBody User user)
-{
-	
-
-	
-	service.add(user);
-	return ResponseEntity.status(HttpStatus.OK).body("Entity user added successfully");
+@DeleteMapping("/deleteuser/{id}")
+public ResponseEntity<?> deleteUser(@PathVariable int id) throws DeleteUserException {
+User user =service.find(id);
+if(user==null) {
+throw new DeleteUserException(id);
 }
-
-
-	@DeleteMapping("/deleteuser/{id}")
-public ResponseEntity<?>  deleteItem(@PathVariable int  id)  throws DeleteUserException
-{
-		  User User=service.find(id);
-		   if(User==null)
-		   {
-			    throw new DeleteUserException(id);
-		   }
 service.delete(id);
-return ResponseEntity.ok("Element deleted successfully");
+return ResponseEntity.ok("User deleted succesfully");
 }
 
+@PostMapping("/addregistereduser")
+public ResponseEntity<?> addRegisteredUser(@RequestBody User user) {
+service.add(user);
+return ResponseEntity.status(HttpStatus.OK).body("User added succesfully");
+}
+
+//@FetchMapping("/updateUser")
+@FetchMapping("/updateUser")
+public ResponseEntity<?> updateUser(@RequestBody User user) throws UpdateUserException{
+	service.update(user);
+	boolean result=service.checkUser(user.getEmail(), user.getPassword());
+	if(result) {
+		User user1 = service.findUser(user.getEmail().getid());
+		if(user1==null) {
+			throw new UpdateUserException();
+		}
+		service.update(user.getUserName());
+		return ResponseEntity.ok("User Updated Successfully");
 		
-		
+	}
+	else {
+		return ResponseEntity.ok("User not Registered");
+	}
+	
+}
 
 }
