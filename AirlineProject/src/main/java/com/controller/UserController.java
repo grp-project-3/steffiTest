@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -47,23 +48,21 @@ return ResponseEntity.status(HttpStatus.OK).body("User added succesfully");
 }
 
 //@FetchMapping("/updateUser")
-@FetchMapping("/updateUser")
-public ResponseEntity<?> updateUser(@RequestBody User user) throws UpdateUserException{
-	service.update(user);
-	boolean result=service.checkUser(user.getEmail(), user.getPassword());
-	if(result) {
-		User user1 = service.findUser(user.getEmail().getid());
-		if(user1==null) {
+@PatchMapping("/updateUser")
+public ResponseEntity<?> updateUser(@RequestBody User user) {
+	
+	User u1=service.find(user.getId());
+//	service.update(user);
+//	boolean result=service.checkUser(user.getEmail());
+	//if(result) {
+	//	User user1 = service.findUser(user.getEmail().getid());
+		if(u1==null) {
 			throw new UpdateUserException();
 		}
-		service.update(user.getUserName());
+		service.update(user);
 		return ResponseEntity.ok("User Updated Successfully");
 		
-	}
-	else {
-		return ResponseEntity.ok("User not Registered");
 	}
 	
 }
 
-}

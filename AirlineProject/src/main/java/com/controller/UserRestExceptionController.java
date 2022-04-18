@@ -16,6 +16,15 @@ public class UserRestExceptionController {
 		
     }
 	
+	@ExceptionHandler(UpdateUserException.class)
+    public ResponseEntity<?> handleUpdateException(UpdateUserException e,WebRequest req)
+    {
+	
+		
+		  return new ResponseEntity<>(e.toString(),HttpStatus.NOT_FOUND);
+		
+    }
+	
 	
 }
 
